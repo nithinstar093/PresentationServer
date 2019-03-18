@@ -28,5 +28,8 @@ module Duckrails
     config.middleware.insert_after "Rails::Rack::Logger", "Duckrails::Synchronizer"
 
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
+
+    config.assets.initialize_on_precompile = false
+    
   end
 end
