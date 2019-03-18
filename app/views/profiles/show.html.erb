@@ -1,0 +1,35 @@
+<center><h1 class="btn btn-primary btn-xl js-scroll-trigger">Profile Details</h1></center></br></br>
+
+<table class="table table-striped table-hover">
+    
+      <thead class="thead-dark">
+        <tr>
+        <th>Profile ID</th>
+        <th>Profile Name </th>
+        <th>Base_url</th>
+        <th>Auth_type</th>
+        <th>Default_username</th>
+        <th>Default_password</th>
+        
+        </tr>
+        </thead>
+        </div>
+  <tbody>
+
+  
+    <tr>
+
+    <td><%= @profile['id'] %></td>
+    <td><%= @profile['name'] %></td>
+    <td><%= @profile['base_url'] %></td>
+    <td><%= @profile['auth_type'] %></td>
+    <td><%= @profile['default_user_name'] %></td>
+    <td><%= @profile['default_password'] %></td>
+    
+      
+      
+    </tr>
+    </tbody>
+   
+  
+</table>

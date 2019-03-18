@@ -1,0 +1,70 @@
+<html>
+<head>
+  <div class="col-md-4 col-md-offset-4">
+  
+
+  <title><%= content_for?(:title) ? yield(:title) : 'Profiles' %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+
+    
+</head>
+    <body>
+    <div class="col-md-33">
+        <div class = "panel panel-primary">
+            <div class = "panel-heading">Fill in details</div>
+                <div class ="panel-body">
+                    
+                
+                    
+                    <%= form_for @profile do |f| %>
+
+                        
+                        <div class="form-group">
+                        <%= f.label :name %>
+                        <%= f.text_field :name, required: true, placeholder: "Write your name" %>
+                        </div>
+
+                        <div class="form-group">
+                        <%= f.label :base_url %>
+                        <%= f.text_field :base_url ,required: true,class: "form-control"%>
+                        </div>
+
+                        <div class="form-group">
+                        <%= f.label :auth_type%>
+                        <%= f.text_field :auth_type ,required: true,class: "form-control"%>
+                        
+
+                        </div>
+
+                        <div class="form-group">
+                        <%= f.label :default_user_name %>
+                        <%= f.text_field :default_user_name ,required: true,class: "form-control"%>
+                        </div>
+
+                        <div class="form-group">
+                        <%= f.label :default_password %>
+                        <%= f.text_field :default_password ,autocomplete: "off",required: true,class: "form-control"%>
+                        </div>
+
+                        <br /> 
+
+                        <div class="actions form-group">
+                        <%= f.submit "Submit" , class: "btn btn-success" %>
+                        </div>
+
+                        <% end %>
+                        </body>
+                        </form>
+                 </div>
+                 </div>
+            </div>
+        </div>
+    
+    </div>
+    </div>
+</div>
+</div>

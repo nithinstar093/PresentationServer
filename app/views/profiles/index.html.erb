@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title><%= content_for?(:title) ? yield(:title) : 'Profiles' %></title>
+
+  <%= stylesheet_link_tag    "application"%>
+  <%= stylesheet_link_tag    "application"%>
+  <%= javascript_include_tag "vendor/modernizr"%>
+  <%= javascript_include_tag "application"%>
+  <%= csrf_meta_tags %>
+
+  <!-- Font Awesome Icons -->
+  <link href="https://blackrockdigital.github.io/startbootstrap-creative/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+  <!-- Plugin CSS -->
+  <link href="https://blackrockdigital.github.io/startbootstrap-creative/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+  <!-- Theme CSS - Includes Bootstrap -->
+  <link href="https://blackrockdigital.github.io/startbootstrap-creative/css/creative.min.css" rel="stylesheet">
+  
+</head>
+
+<body id="page-top">
+
+  
+  <div class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container">
+      <h4><a class="text-muted mb-0" href="#page-top">Profiles API</a></h4>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+      </div>
+    </div>
+  </div>
+
+
+ 
+
+  <center>
+  <section style = "padding-top:30px",class="page-section " id="Create Profile">
+    <div class="container">
+      <h2 class="text-center mt-0"> Profile Options</h2>
+      <center><hr class="divider my-4"></center>
+      <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <i class="fas fa-4x fa-gem text-primary mb-4"></i>
+            <h3 class="h4 mb-2">Create </h3>
+            <p class="text-muted mb-0">Click below, to create a new profile</p><br/><br/>
+            <%= link_to "New Profile",new_profile_path , class: "button"%></p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
+            <h3 class="h4 mb-2">Up to Date</h3>
+            <p class="text-muted mb-0">Keep your credentials up to date</p><br/><br/>
+            <a href="#View Profiles" class="button">Check Details</a></p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <i class="fas fa-4x fa-globe text-primary mb-4"></i>
+            <h3 class="h4 mb-2">Edit/Delete</h3>
+            <p class="text-muted mb-0">Options to edit and delete easily. Scroll down<p><br/><br/>
+            <a href="#View Profiles" class="button">Modify</a></p></p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <i class="fas fa-4x fa-heart text-primary mb-4"></i>
+            <h3 class="h4 mb-2">Connect </h3>
+            <p class="text-muted mb-0">Is it really easy to use and fun.</p><br/><br/>
+            <a href="#contact" class="button">Contact</a></p>
+            
+          </div>
+        </div>
+      </div>
+</section>
+</center>
+
+<br/>
+
+ <center> 
+<section style = "padding-top:30px",class="page-section " id="View Profiles">
+<div class = "container">
+<center><h1 class="btn btn-primary btn-xl js-scroll-trigger">Listing Profiles</h1></center></br></br>
+</div>
+
+ <table class="table table-striped table-hover">
+    
+      <thead class="thead-dark">
+        <tr>
+        <th>Profile Name</th>
+        <th>Profile ID </th>
+        <th>Base_url</th>
+        <th>Auth_type</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        
+        </tr>
+        </thead>
+        </div>
+  <tbody>
+  <% @profiles.each do |profile| %>
+    <tr>
+      <td><%= profile.name %></td>
+      <td><%= profile.id %></td>
+      <td><%= profile.base_url %></td>
+      <td><%= profile.auth_type %></td>
+      
+      <td class="actions">
+              <%= link_to edit_profile_path(profile),
+                          title: 'Edit profile',
+                          class: 'button tiny edit' do %>
+                <i class="fa fa-edit"></i>
+              <% end %>
+      <td><%= link_to profile_path(profile), 
+               method: :delete,
+               data: { confirm: 'Are you sure?' } ,class: 'button tiny delete' do%>
+          <i class="fa fa-remove"></i>
+          <% end %>
+    </tr>
+    </tbody>
+   
+  <% end %>
+</table>
+</div>
+</div>
+</section>
+</center>
+  
+</body>
+
+</html>
