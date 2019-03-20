@@ -7,7 +7,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: build/development
+  database: build_development
   pool: 5
   username: nithin
   password: nithin
@@ -17,7 +17,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: build/test
+  database: build_test
   pool: 5
   username: nithin
   password: nithin
@@ -26,7 +26,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: build/test
+  database: build_test
   pool: 5
   username: nithin
   password: nithin
